@@ -1,0 +1,64 @@
+/* * {
+	box-sizing: border-box;
+} */
+body {
+	background: rgba(255, 233, 233, 0.521);
+	height: 95vh;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	font-family: 'Poppins', sans-serif;
+}
+
+.main-map {
+	/* background: rgba(233, 235, 255, 0.616); */
+	/* border: 8px solid rgb(197, 133, 133); */
+	/* border: 1px solid rgba(22, 22, 22, 0.644); */
+	/* padding: 5px; */
+	justify-content: center;
+	border-radius: 8px;
+	height: 640px;
+	width: 640px;
+	display: flex;
+	flex-wrap: wrap;
+	/* align-content: flex-start; */
+	align-items: center;
+}
+
+.grid-row {
+	box-sizing: border-box;
+	display: flex;
+}
+
+.grid-block {
+	box-sizing: border-box;
+	display: inline-block;
+	background-color: rgb(233, 233, 233);
+	border-radius: 8px;
+	border: 2px solid rgba(71, 70, 70, 0.527);
+	height: 40px;
+	width: 40px;
+}
+
+.snake-segment {
+	box-sizing: border-box;
+	display: inline-block;
+	background-color: rgb(192, 126, 178);
+	border: 4px solid rgba(80, 55, 75, 0.705);
+	border-radius: 8px;
+	height: 40px;
+	width: 40px;
+	z-index: 2;
+}
+
+.food {
+	box-sizing: border-box;
+	display: inline-block;
+	background-color: rgb(124, 219, 124);
+	padding: 1px;
+	border: 4px solid rgba(51, 126, 51, 0.671);
+	border-radius: 10px;
+	height: 40px;
+	width: 40px;
+	z-index: 1;
+}
