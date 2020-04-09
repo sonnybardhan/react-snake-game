@@ -67,6 +67,7 @@ const Map = () => {
 		if ([ 32, 37, 38, 39, 40 ].indexOf(e.keyCode) > -1) {
 			e.preventDefault();
 		}
+
 		if (allow) {
 			switch (e.keyCode) {
 				case 27: //escape
