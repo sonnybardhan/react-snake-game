@@ -20,7 +20,7 @@ const Map = () => {
 	const initialSnake = [ { x: 3, y: 3 }, { x: 3, y: 2 }, { x: 3, y: 1 } ];
 	const initialDirection = 'right';
 	const key = 'snakeGame';
-	const initialFps = 8;
+	const initialFps = 9;
 	const [ score, setScore ] = useState(0);
 	const [ rows, setRows ] = useState(initialMap);
 	const [ snake, setSnake ] = useState(initialSnake);
