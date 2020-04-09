@@ -31,6 +31,7 @@ const Map = () => {
 	const [ bestScore, setBestScore ] = useState(getScoreFromLS(key));
 	const [ message, setMessage ] = useState('');
 	const [ started, setStarted ] = useState(false);
+	const [ eventTime, setEventTime ] = useState(performance.now());
 
 	useEffect(
 		() => {
@@ -52,34 +53,47 @@ const Map = () => {
 	);
 
 	function keyboardInput(e) {
+		let allow = false;
+
+		setEventTime((lastEvent) => {
+			const now = performance.now();
+			const diff = Math.floor(now - lastEvent) / 1000;
+			if (diff > 0.1) {
+				allow = true;
+			}
+			return now;
+		});
+
 		if ([ 32, 37, 38, 39, 40 ].indexOf(e.keyCode) > -1) {
 			e.preventDefault();
 		}
-		switch (e.keyCode) {
-			case 27: //escape
-				return gameReset();
-			case 32: //space
-				return setGameRunning((prevState) => {
-					if (!started) {
-						setStarted(true);
-						setDirection('right');
-					}
-					return !prevState;
-				});
-			case 37: //left
-				if (direction !== 'right') return setDirection('left');
-				break;
-			case 38: //up
-				if (direction !== 'down') return setDirection('up');
-				break;
-			case 39: //right
-				if (direction !== 'left') return setDirection('right');
-				break;
-			case 40: //down
-				if (direction !== 'up') return setDirection('down');
-				break;
-			default:
-				break;
+		if (allow) {
+			switch (e.keyCode) {
+				case 27: //escape
+					return gameReset();
+				case 32: //space
+					return setGameRunning((prevState) => {
+						if (!started) {
+							setStarted(true);
+							setDirection('right');
+						}
+						return !prevState;
+					});
+				case 37: //left
+					if (direction !== 'right') return setDirection('left');
+					break;
+				case 38: //up
+					if (direction !== 'down') return setDirection('up');
+					break;
+				case 39: //right
+					if (direction !== 'left') return setDirection('right');
+					break;
+				case 40: //down
+					if (direction !== 'up') return setDirection('down');
+					break;
+				default:
+					break;
+			}
 		}
 	}
 
