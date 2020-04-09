@@ -125,7 +125,7 @@ const Map = () => {
 
 	return (
 		<div className="">
-			<h1 style={{ textAlign: 'center' }}>!Snake!</h1>
+			<h1 style={{ textAlign: 'center' }}>Snake!</h1>
 			<h2>
 				<span>{gameRunning ? `Score: ${score}` : null}</span>
 			</h2>
