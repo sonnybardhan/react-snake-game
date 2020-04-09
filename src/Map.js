@@ -20,7 +20,7 @@ const Map = () => {
 	const initialSnake = [ { x: 3, y: 3 }, { x: 3, y: 2 }, { x: 3, y: 1 } ];
 	const initialDirection = 'right';
 	const key = 'snakeGame';
-	const initialFps = 7;
+	const initialFps = 8;
 	const [ score, setScore ] = useState(0);
 	const [ rows, setRows ] = useState(initialMap);
 	const [ snake, setSnake ] = useState(initialSnake);
@@ -58,7 +58,7 @@ const Map = () => {
 		setEventTime((lastEvent) => {
 			const now = performance.now();
 			const diff = Math.floor(now - lastEvent) / 1000;
-			if (diff > 0.1) {
+			if (diff > 0.075) {
 				allow = true;
 			}
 			return now;
