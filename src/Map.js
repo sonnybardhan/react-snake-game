@@ -51,8 +51,11 @@ const Map = () => {
 		[ direction ]
 	);
 
-	function keyboardInput({ keyCode }) {
-		switch (keyCode) {
+	function keyboardInput(e) {
+		if ([ 32, 37, 38, 39, 40 ].indexOf(e.keyCode) > -1) {
+			e.preventDefault();
+		}
+		switch (e.keyCode) {
 			case 27: //escape
 				return gameReset();
 			case 32: //space
